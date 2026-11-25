@@ -15,6 +15,9 @@ JOKE = (
 
 
 def main() -> None:
+    # The gate accepts 1-200 characters; refuse to write anything outside it
+    # rather than submit an invalid entry.
+    assert 1 <= len(JOKE) <= 200, f"joke is {len(JOKE)} chars, gate needs 1-200"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(JOKE)
